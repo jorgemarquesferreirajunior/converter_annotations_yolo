@@ -42,7 +42,7 @@ def configcfg(path, subdivisions, n_classes):
             local_timezone = pytz.timezone('America/Sao_Paulo')
             now = datetime.now(local_timezone)   
             timestamp = now.strftime("%d-%m-%Y %H:%M:%S")
-            lines.append(f"\nData e hora da última modificação: {timestamp}\n")
+            lines.append(f"\n#Data e hora da última modificação: {timestamp}\n")
             
             file.seek(0)
             file.writelines(lines)
