@@ -1,6 +1,15 @@
 from datetime import datetime
 import pytz
 
+def lenFile(path):
+    try:
+        with open(path, 'r') as file:
+            lines = file.readlines()
+            return len(lines)
+    except Exception as e:
+        print(f"Erro ao contalibizar as linhas do arquivo {path}: {e}")
+
+
 def showfilecfg(path):
     try:
         with open(path, 'r') as file:
@@ -27,6 +36,8 @@ def configcfg(path, subdivisions, n_classes):
                     lines[i] = 'filters=' + str((n_classes + 5) * 3) + '\n'
                 elif i == 967 or i == 1055 or i == 1143:
                     lines[i] = 'classes=' + str(n_classes) + '\n'
+                elif i > 1156 :
+                    lines[i] = ''
 
             local_timezone = pytz.timezone('America/Sao_Paulo')
             now = datetime.now(local_timezone)   
