@@ -27,8 +27,8 @@ def configcfg(path, subdivisions, n_classes):
                 elif i == 967 or i == 1055 or i == 1143:
                     lines[i] = 'classes=' + str(n_classes) + '\n'
                     
-            now = datetime.now()
-            timestamp = now.strftime("%Y-%m-%d %H:%M:%S")
+            now = datetime.now()    
+            timestamp = now.strftime("%d-%m-%Y %H:%M:%S")
             lines.append(f"\nData e hora da última modificação: {timestamp}\n")
             
             file.seek(0)
