@@ -1,4 +1,5 @@
 from datetime import datetime
+import pytz
 
 def showfilecfg(path):
     try:
@@ -26,8 +27,9 @@ def configcfg(path, subdivisions, n_classes):
                     lines[i] = 'filters=' + str((n_classes + 5) * 3) + '\n'
                 elif i == 967 or i == 1055 or i == 1143:
                     lines[i] = 'classes=' + str(n_classes) + '\n'
-                    
-            now = datetime.now()    
+
+            local_timezone = pytz.timezone('America/Sao_Paulo')
+            now = datetime.now(local_timezone)   
             timestamp = now.strftime("%d-%m-%Y %H:%M:%S")
             lines.append(f"\nData e hora da última modificação: {timestamp}\n")
             
